@@ -1,20 +1,35 @@
 if __name__ == "__main__":
     n = int(input())
 
-    res = []
-    def generateCode(idx, pattern):
-        if idx == n-1:
-            res.append(pattern)
-            return
+    def generateCodes(idx, code, size):
+        if idx == n:
+            return code
 
-        generateCode(idx + 1, pattern + "0")
-        generateCode(idx + 1, pattern + "1")
+        newCode = []
+        for i in range(0, size):
+            newCode.append("0" + code[i])
+        
+        for i in range(size - 1, -1, -1):
+            newCode.append("1" + code[i])
+        
+        return generateCodes(idx + 1, newCode[::], len(newCode))
     
-    generateCode(0, "")
+    code = ["00", "01", "11", "10"]
+    if n == 1:
+        print("0")
+        print("1")
+    elif n == 2:
+        for i in code:
+            print(i)
+    else:
+        res = generateCodes(2, code, 4)
+        for i in res:
+            print(i)
 
-    for i in res:
-        print("0" + i)
-    for i in res[::-1]:
-        print("1" + i)
+
+        
+
+
+
 
     
