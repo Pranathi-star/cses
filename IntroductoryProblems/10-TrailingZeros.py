@@ -9,6 +9,3 @@ if __name__ == "__main__":
         currPow = (5 ** curr) 
     
     print(res)
-
-
-
