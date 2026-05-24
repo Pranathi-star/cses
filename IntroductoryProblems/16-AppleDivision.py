@@ -27,11 +27,3 @@ def main():
     print(solver.solve())
 
 main()
-        
-        
-        
-        
-
-
-
-        
